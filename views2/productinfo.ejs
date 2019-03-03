@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1><%= product.name %></h1>
+    <h1><%= product.price %></h1>
+
+    <form action="/products/delete/<%=product._id %>" method="post">
+        <button type="submit" value="delete">Delete</button>
+    </form>
+</body> 

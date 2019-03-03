@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>coffeeholic</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Laila" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+/* 		
+		.first {
+			height: 100px;
+
+		} */
+
+		
+		body {
+	/*background: pink;*/
+	background: url(http://www.rizopoulospost.com/wp-content/uploads/2017/07/1481814525116.jpg) no-repeat fixed;;
+
+	font-family: Laila;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+		background-size: cover;
+		overflow: hidden
+}
+
+ 
+.main-wrapper {
+		height: 88vh;  
+	  }
+	  
+	  .section {
+		height: 33.33%;  
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	  }
+	  
+	  .onethird {
+		/* background: #f9f9f9; */
+		height: 1000%;  
+		width:  33.33%;
+		margin: 15px 0;
+	  }
+ 
+		footer {
+      background-color:rgb(47, 28, 9);
+      color: white;
+			padding: 2px;
+			
+			bottom: 0;
+clear: both;
+height: 27px;
+position: fixed;
+width: 100%;
+    }
+		.colorform{
+		background: rgba(47, 28, 9,.8)
+	  }
+	  h1{
+		color: white;  
+	  }
+		.colorform{
+		background: rgba(47, 28, 9,.8);
+
+		}
+		.sizes{
+			height: 480px;
+      width: 40%;
+		}
+		#special{
+	color:white;
+}
+
+		.navbcolor{
+			/* padding: 0.4px; */
+			background-color: rgb(47, 28, 9);
+			/* color: white; */
+		}
+
+		html,body {
+  height:100%;
+  width:100%;
+  margin:0;
+}
+body {
+  display:flex;
+}
+.form1 {
+  margin:auto;/* nice thing of auto margin if display:flex; it center both horizontal and vertical :) */
+}
+
+.check{
+	margin-bottom: 10px;
+	color:white;
+}
+
+  </style>
+</head>
+<body>
+
+		
+
+		<nav class="navbar navbar-default navbar-fixed-top navbcolor" id="special">
+		<div class="container-fluid navbcolor">
+				<div class="navbar-header ">
+						<a class="navbar-brand" id="special" href="/observatory/api">CoffeeGuru</a>
+				</div>
+				<div class="collapse navbar-collapse">
+						<!-- <ul class="nav navbar-nav navbar-right ">
+								<li><a href="/"  id="special">Login</a></li>
+								<li ><a href="/"id="special">Sign Up</a></li>
+						</ul> -->
+				</div>
+		</div>
+</nav>
+
+<div class="well colorform form1 sizes">
+	<h1 style="text-align: center" id="special">Sign Up</h1>
+  <div class="rwd-form">
+    <form action="/observatory/api/signup" method="post">
+      <div class="form-group">
+        <label for="username" id="special">User Name</label>
+        <input class="form-control" type="text" name="username" autocomplete="off" required />
+			</div>
+			<div class="form-group">
+        <label for="email" id="special">Email</label>
+        <input class="form-control" type="email" name="email" autocomplete="off" required />
+      </div>
+      <div class="form-group">
+        <label for="password" id="special">Password</label>
+        <input class="form-control" type="password" id="myInput" name="password" autocomplete="off" required />
+			</div>
+			<div class="check">
+			<input type="checkbox"  onclick="myFunction()">Show Password
+		</div>
+			
+     
+      
+      <div class="form-group">
+        <button class="btn btn-md btn-primary btn-block" id="special">Sign Up!</button>
+      </div>
+      <hr>
+      <a href="/">Back</a>
+     
+	
+		
+    </form>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+		<p>00101010</p>
+	</footer>
+	<script>
+		function myFunction() {
+			var x = document.getElementById("myInput");
+			if (x.type === "password") {
+				x.type = "text";
+			} else {
+				x.type = "password";
+			}
+		}
+		</script>
+		
+</body>
+</html>

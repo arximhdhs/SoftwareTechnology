@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1><%= shop[0].name %></h1>
+    <h1><%= shop[0].address %></h1>
+
+    <form action="/shop/deleteshop/<%=shop[0]._id %>" method="POST">
+        <button type="submit" value="delete">Delete</button>
+    </form>
+</body> 
