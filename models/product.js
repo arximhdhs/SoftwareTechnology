@@ -12,6 +12,7 @@ const productSchema = mongoose.Schema({
     coordinates: {type: [Number], index: "2d"},
     lat: Number,
     lon: Number
+    //
 });
 
 module.exports = mongoose.model('Product', productSchema);
