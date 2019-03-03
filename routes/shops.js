@@ -12,7 +12,7 @@ router.post("/", ShopsController.create_new);
 router.get("/list", ShopsController.list_them_all);
 
 router.get("/shopinfo/:shopid", ShopsController.shop_info); // kai xwris shopinfo
-
+//geia
 router.post("/deleteshop/:shopid", ShopsController.delete_shop);
 
 module.exports = router; 
