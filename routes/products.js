@@ -19,6 +19,8 @@ router.patch("/:productId", ProductsController.productId_patch);
   
 router.delete("/:productId", ProductsController.productId_delete);
 
+router.post("/rating/:productId", ProductsController.submit_rating);
+
 //router.post("/delete/:productId",ProductsController.productId_delete);
   
 module.exports = router;

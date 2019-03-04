@@ -407,18 +407,26 @@ svg {
                        
                            <normal class="price_style" > <%= product[i].price %> </normal>
                       <span class="glyphicon glyphicon-euro euro_icon"></span>
-                      <!-- <%= product[i].rating.rate %> -->
+                      <!-- <%= product[i].rate %> -->
                       <!-- <button onclick="myFunction()">Try it</button> -->
 
                       <!-- <button onclick="map()" class="btn success">Success</button> -->
                       
-                      <!-- <div class="container_0">
-                        <div class="parent"> 
-                          <h2>Title One</h2>
-                          <div class='child_1'>paragraph 1</div>
-                          <div class='child_2'>paragraph 2</div>
+                      <div class="container_0">
+                        <div class="parent" > 
+                          <h4>Rate product</h4>
+                          <div class='child_1' style="display:none;">
+                            <form action="/observatory/api/products/rating/<%= product[i]._id %> " method="post">  <!--ssssssssss--->                          <div class="form-group">
+                            
+                              <input class="form-control" type="text" name="rate" autocomplete="off"  />
+                            
+                              <button class="btn btn-md btn-primary btn-block">Submit</button>
+                          </div>
+                            </form>
+                          </div>
+                          
                         </div>
-                      </div> -->
+                      </div>
                          
                     </div>
                   </div>
@@ -600,7 +608,7 @@ function myFunction() {
 // }
 
 $(function(){ 
-  $('.parent').click( function() {
+  $('.parent').dblclick( function() {
     $(this).children("div").toggle();
   });
 });
@@ -654,6 +662,7 @@ $(function(){
   //       .bindPopup("<b>Hello world!</b><br>I am a popup.")
   //       .openPopup();
   // }
+
 
 </script>
 

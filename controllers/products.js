@@ -173,6 +173,30 @@ exports.productId_delete = (req, res, next) => {
       });
   }  
 
+exports.submit_rating = (req, res) => {
+  
+  const productId = req.params.productId;
+  console.log(productId);
+  console.log("rfe");
+  Product.findById(productId)
+  .exec()
+  .then(product => {
+    console.log(product.count);
+    console.log(product.rate);
+    //const sum= product.rate * product.count;
+    //sum=sum+req.body.rate;
+    console.log(req.body.rate);
+    console.log("hiiiiiii");
+    console.log( (product.rate) * (product.count) );
+    const tmpCnt=product.count+1;
+    console.log(tmpCnt);
+    const tmpRt =  ((req.body.rate) * (tmpCnt))/tmpCnt ;
+    console.log( tmpRt );
+    product.update({$set: {rate: tmpRt, count: tmpCnt}}).exec().save();
+  })
+  .save(); 
+}
+
   function calcCrow(lat1, lon1, lat2, lon2) {
     var R = 6371; // km
     var dLat = toRad(lat2 - lat1);
