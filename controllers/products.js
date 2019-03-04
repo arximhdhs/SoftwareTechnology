@@ -190,11 +190,13 @@ exports.submit_rating = (req, res) => {
     console.log( (product.rate) * (product.count) );
     const tmpCnt=product.count+1;
     console.log(tmpCnt);
-    const tmpRt =  ((req.body.rate) * (tmpCnt))/tmpCnt ;
+    const tmpRt = ( ((product.rate) * (product.count))+(req.body.rate) )/tmpCnt ;
     console.log( tmpRt );
     product.update({$set: {rate: tmpRt, count: tmpCnt}}).exec().save();
+    res.redirect('/observatory/api/products/searchresults');
   })
   .save(); 
+  
 }
 
   function calcCrow(lat1, lon1, lat2, lon2) {

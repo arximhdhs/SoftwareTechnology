@@ -37,13 +37,30 @@
 <script type="text/javascript">
     // Maps access token goes here
     var key = '5f56374211cc54';
-
+ 
+// var queryString = decodeURIComponent(window.location.search);
+// queryString = queryString.substring(1);
+// var queries = queryString.split("&");
+// var lat=queries[0];
+// var lon=queries[1];
+ 
     // Add layers that we need to the map
     var streets = L.tileLayer.Unwired({key: key, scheme: "streets"});
-
+    //let qs = window.location.search.substring(1);
+    // var v1 = window.location.href.slice(window.location.href.indexOf('?') + 1);
+    // var v2 = window.location.href.slice(window.location.href.indexOf('?') + 2);
+    //var v1 = qs.get("myVar1");
+    //var v2 = qs.get("myVar2");
+    //var v1 = 37.9882683 ;//qs.get("myVar1");
+    //var v2 = 23.7580247 ;//qs.get("myVar2");
+    var urls = window.location.href;
+    console.log(urls);
+    var url = new URL(urls);
+    var v1 = url.searchParams.get("myVar1");
+    var v2 = url.searchParams.get("myVar2");
     // Initialize the map
     var map = L.map('map', {
-        center: [38.0417985, 23.8326074], // Map loads with this location as center
+        center: [v1,v2], // Map loads with this location as center
         zoom: 14,
         scrollWheelZoom: false,
         layers: [streets] // Show 'streets' by default
@@ -64,8 +81,8 @@
 
     // Add a 'marker'
     var marker = L.marker([38.0417985, 23.8326074])
-        .addTo(map)
-        .bindPopup("<b>Hello world!</b><br>I am a popup.")
+         .addTo(map)
+         .bindPopup("Here!")
         .openPopup();
 
 </script>

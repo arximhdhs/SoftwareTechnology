@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +61,43 @@ body {
 
   /* background-size: 1000px; */
 }
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
 
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
+}
+
+.attribution {
+  font-size: 12px;
+  color: #444;
+  text-decoration: none;
+  text-align: center;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: -1;
+}
+.attribution:hover {
+  color: #1fa67a;
+}
 .header {
   padding: 10px 16px;
   /* background-color:rgb(47, 28, 9); */
@@ -252,46 +285,16 @@ svg {
 }
 .price_style{
   font-size: 35px;
-  margin-left: 100px;
+  margin-left: 60px;
 
 }
-.stars-outer {
-  display: inline-block;
-  position: relative;
-  font-family: FontAwesome;
+.star-rating {
+  line-height:32px;
+  font-size:1.25em;
 }
 
-.stars-outer::before {
-  content: "\f006 \f006 \f006 \f006 \f006";
-}
+.star-rating .fa-star{color: yellow;}
 
-.stars-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-}
-
-.stars-inner::before {
-  content: "\f005 \f005 \f005 \f005 \f005";
-  color: #f8ce0b;
-}
-
-.attribution {
-  font-size: 12px;
-  color: #444;
-  text-decoration: none;
-  text-align: center;
-  position: fixed;
-  right: 10px;
-  bottom: 10px;
-  z-index: -1;
-}
-.attribution:hover {
-  color: #1fa67a;
-}
 #myDIV {
   width: 100%;
   padding: 50px 0;
@@ -317,8 +320,8 @@ svg {
           width: 200px;
           /* right: 200%; */
           text-align: left;
-          margin-left: 100px;
-          margin-top: 20px;
+          margin-left: 550px;
+          margin-top: 0px;
         }
        
 </style>
@@ -407,14 +410,19 @@ svg {
                        
                            <normal class="price_style" > <%= product[i].price %> </normal>
                       <span class="glyphicon glyphicon-euro euro_icon"></span>
-                      <!-- <%= product[i].rate %> -->
+                     
+                      <!-- <normal class="big-icon " style="margin-left:20px;" ><%= product[i].rate %></normal> -->
+                     
                       <!-- <button onclick="myFunction()">Try it</button> -->
 
                       <!-- <button onclick="map()" class="btn success">Success</button> -->
                       
                       <div class="container_0">
+                         <h4 ><a style="font-family: Laila;" href="/observatory/api/map?myVar1=<%= product[i].lat%> &myVar2=<%= product[i].lon %> ">Δείτε στον Χάρτη</a></h4>
+<hr>
                         <div class="parent" > 
-                          <h4>Rate product</h4>
+                          
+                          <h4>Αξιολογήστε (1 - 5)</h4>
                           <div class='child_1' style="display:none;">
                             <form action="/observatory/api/products/rating/<%= product[i]._id %> " method="post">  <!--ssssssssss--->                          <div class="form-group">
                             
@@ -423,8 +431,10 @@ svg {
                               <button class="btn btn-md btn-primary btn-block">Submit</button>
                           </div>
                             </form>
+
+
                           </div>
-                          
+
                         </div>
                       </div>
                          
