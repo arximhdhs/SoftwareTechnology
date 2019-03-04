@@ -20,6 +20,7 @@ exports.products_get_all = (req, res, next) => {
   }
 
   exports.products_get_results = (req, res, next) => {
+    console.log("sfvsdg")
     var tmpaddress = req.body.address;
     var adr = tmpaddress.replace(/ /g, "%20");
     var api = 'https://us1.locationiq.com/v1/search.php?key=5f56374211cc54&q=' + adr + '&format=json';
@@ -28,7 +29,7 @@ exports.products_get_all = (req, res, next) => {
         return response.json();
     }).then(function (json) {
         products = json;
-        console.log(products);
+        // console.log(products);
         userlat = products[0].lat;
         userlon = products[0].lon;
       
@@ -36,14 +37,14 @@ exports.products_get_all = (req, res, next) => {
       .exec()
       .then(product => {
         for(var i=0; i<product.length;i++){
-        console.log(i);
+        // console.log(i);
         var dist=calcCrow(userlat,userlon,product[i].lat,product[i].lon);
-        console.log(calcCrow(userlat,userlon,product[i].lat,product[i].lon));
-        console.log(product);
-        console.log("hello");
+        // console.log(calcCrow(userlat,userlon,product[i].lat,product[i].lon));
+        // console.log(product);
+        // console.log("hello");
         if (calcCrow(userlat,userlon,product[i].lat,product[i].lon)>3){
             product.splice(i,1);
-            dist.splice(i,1)
+            // dist.splice(i,1);
             i--;
           }
         }
