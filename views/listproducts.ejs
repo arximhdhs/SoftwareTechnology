@@ -8,7 +8,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
           <link href="https://fonts.googleapis.com/css?family=Laila" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
           <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 
 /* 990000 */
@@ -226,10 +232,101 @@ svg {
     font-weight: lighter;
 
 }
+
+.store_char{
+  margin-top: 20px;
+}
+.ic_size{
+  height: 300px;
+}
+.big-icon {
+    font-size: 28px;
+    margin-left: 20px;
+    margin-bottom: 12px;
+}
+
+.euro_icon{
+  font-size: 23px;
+  margin-left: -6px;
+
+}
+.price_style{
+  font-size: 35px;
+  margin-left: 100px;
+
+}
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
+}
+
+.attribution {
+  font-size: 12px;
+  color: #444;
+  text-decoration: none;
+  text-align: center;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: -1;
+}
+.attribution:hover {
+  color: #1fa67a;
+}
+#myDIV {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+.map{
+  position: fixed;
+  width: 200%;
+  height: 20%;
+}
+
+#map {
+            position: relative;
+            width: 900px;
+            height: 400px;
+            color: black;
+            
+        }
+
+        .container_0{
+          width: 200px;
+          /* right: 200%; */
+          text-align: left;
+          margin-left: 100px;
+          margin-top: 20px;
+        }
+       
 </style>
 </head>
 <body>
-
+    <!-- <div class="map"> 
+        <div id='map'></div>    
+      </div> -->
 <div class="top-container bg">
   <!-- <h1>Scroll Down</h1>
   <p>Scroll down to see the sticky effect.</p> -->
@@ -255,8 +352,8 @@ svg {
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <% if (!currentUser) { %>
-                            <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login" id="special">Login</a></li>
-                            <li class="<%= typeof page !== 'undefined' && page === 'signup' ? 'active' : '' %>"><a href="/signup" id="special">Sign Up</a></li>
+                            <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/observatory/api/login" id="special">Login</a></li>
+                            <li class="<%= typeof page !== 'undefined' && page === 'signup' ? 'active' : '' %>"><a href="/observatory/api/signup" id="special">Sign Up</a></li>
                         <% } else { %>
                             <% if (currentUser.isAdmin) { %>
                                 <li><a href="/users/<%= currentUser._id %>" id="special">Admin. <%= currentUser.username %></a></li>
@@ -299,19 +396,37 @@ svg {
 			</div>
 			<div class="rightcolumn">
 				
-			
-					
-            
-            <ol>
-                
-                <% for(var i=0; i < product.length; i++){ %>
+          <%= product[0].name %>
+        <ul >
+            <% for(var i=0; i < product.length; i++){ %>
+           
                   <div class="card">
-                    <li> <%= product[i].name %> </li>
+                      <div class="container ">
+                          <i class="material-icons big-icon store_char ">store</i>
+                           <strong class="big-icon " >  <%= product[i].store %>  </strong> 
+                       
+                           <normal class="price_style" > <%= product[i].price %> </normal>
+                      <span class="glyphicon glyphicon-euro euro_icon"></span>
+                      <!-- <%= product[i].rating.rate %> -->
+                      <!-- <button onclick="myFunction()">Try it</button> -->
+
+                      <!-- <button onclick="map()" class="btn success">Success</button> -->
+                      
+                      <!-- <div class="container_0">
+                        <div class="parent"> 
+                          <h2>Title One</h2>
+                          <div class='child_1'>paragraph 1</div>
+                          <div class='child_2'>paragraph 2</div>
+                        </div>
+                      </div> -->
+                         
+                    </div>
                   </div>
-                <% } %>
-              
-            </ol>
             
+                  <% } %>
+      
+        </ul>
+     
 
 
 			</div>
@@ -475,6 +590,70 @@ function myFunction() {
           });
 
  
+//           function myFunction() {
+//   var x = document.getElementById("myDIV");
+//   if (x.style.display === "none") {
+//     x.style.display = "block";
+//   } else {
+//     x.style.display = "none";
+//   }
+// }
+
+$(function(){ 
+  $('.parent').click( function() {
+    $(this).children("div").toggle();
+  });
+});
+
+// // total number of stars
+// const starTotal = 5;
+
+//   const starPercentage = (ratings[rating] / starTotal) * 100;
+//   const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
+//   document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded; 
+
+
+</script>
+<script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
+<script type="text/javascript" src="https://leafletjs-cdn.s3.amazonaws.com/content/leaflet/master/leaflet.js"></script>
+<script type="text/javascript" src="https://tiles.unwiredmaps.com/js/leaflet-unwired.js"></script>
+<script type="text/javascript">
+    // Maps access token goes here
+  //   function map(){
+
+    
+  //   var key = '5f56374211cc54';
+
+  //   // Add layers that we need to the map
+  //   var streets = L.tileLayer.Unwired({key: key, scheme: "streets"});
+
+  //   // Initialize the map
+  //   var map = L.map('map', {
+  //       center: [38.0417985, 23.8326074], // Map loads with this location as center
+  //       zoom: 14,
+  //       scrollWheelZoom: false,
+  //       layers: [streets] // Show 'streets' by default
+  //   });
+
+  //   // Add the 'scale' control
+  //   L.control.scale().addTo(map);
+
+  //   // Add the 'layers' control
+  //   L.control.layers({
+  //       "Streets": streets
+  //   }).addTo(map);
+
+  //   // Add a 'circle' and create a popup
+  
+
+  //   // Add a 'polygon' & bind with a popup function
+
+  //   // Add a 'marker'
+  //   var marker = L.marker([38.0417985, 23.8326074])
+  //       .addTo(map)
+  //       .bindPopup("<b>Hello world!</b><br>I am a popup.")
+  //       .openPopup();
+  // }
 
 </script>
 

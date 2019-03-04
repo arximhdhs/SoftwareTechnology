@@ -11,8 +11,11 @@ const productSchema = mongoose.Schema({
     tags: [{type: String}],
     coordinates: {type: [Number], index: "2d"},
     lat: Number,
-    lon: Number
-    //
+    lon: Number,
+    rating : {
+        count: Number,
+        rate: Number
+    }
 });
 
 module.exports = mongoose.model('Product', productSchema);

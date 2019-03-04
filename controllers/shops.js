@@ -38,7 +38,7 @@ exports.create_new = (req, res) => {
         shop
         .save()
         .then(shop => {
-            res.redirect('/observatory/api');
+            res.redirect('/observatory/api/insert');
             console.log(shop);
         //     res.status(201).json({
         //         message: 'Shop created'

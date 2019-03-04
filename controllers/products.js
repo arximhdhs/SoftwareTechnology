@@ -37,11 +37,13 @@ exports.products_get_all = (req, res, next) => {
       .then(product => {
         for(var i=0; i<product.length;i++){
         console.log(i);
+        var dist=calcCrow(userlat,userlon,product[i].lat,product[i].lon);
         console.log(calcCrow(userlat,userlon,product[i].lat,product[i].lon));
         console.log(product);
         console.log("hello");
         if (calcCrow(userlat,userlon,product[i].lat,product[i].lon)>3){
             product.splice(i,1);
+            dist.splice(i,1)
             i--;
           }
         }
@@ -80,7 +82,11 @@ exports.products_post = (req, res) => {
               description: req.body.description,
               store: req.body.store,
               lat: shop.lat,
-              lon: shop.lng
+              lon: shop.lng,
+              rating :{
+                rate:0,
+                count:0
+              }
             });
             product
             .save()

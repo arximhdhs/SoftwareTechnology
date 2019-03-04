@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 const ShopsController = require('../controllers/shops');
+middleware = require("../middleware"); // automatically looks for index.js
 
-router.get("/newshop", function(req, res){
+router.get("/newshop",middleware.isLoggedIn, function(req, res){
     res.render('newshop');
   });
 

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popups</title>
+    <link href="https://leafletjs-cdn.s3.amazonaws.com/content/leaflet/master/leaflet.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        body {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background-color: white;
+        }
+        #map {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            color: black;
+            
+        }
+        .half{
+          position: absolute;
+          height: 100%;
+          width: 100%;
+         background-color: black;
+          
+        }
+    </style>
+</head>
+<body>
+<div class="half"> 
+<div id='map'></div>
+</div>
+<script type="text/javascript" src="https://leafletjs-cdn.s3.amazonaws.com/content/leaflet/master/leaflet.js"></script>
+<script type="text/javascript" src="https://tiles.unwiredmaps.com/js/leaflet-unwired.js"></script>
+<script type="text/javascript">
+    // Maps access token goes here
+    var key = '5f56374211cc54';
+
+    // Add layers that we need to the map
+    var streets = L.tileLayer.Unwired({key: key, scheme: "streets"});
+
+    // Initialize the map
+    var map = L.map('map', {
+        center: [38.0417985, 23.8326074], // Map loads with this location as center
+        zoom: 14,
+        scrollWheelZoom: false,
+        layers: [streets] // Show 'streets' by default
+    });
+
+    // Add the 'scale' control
+    L.control.scale().addTo(map);
+
+    // Add the 'layers' control
+    L.control.layers({
+        "Streets": streets
+    }).addTo(map);
+
+    // Add a 'circle' and create a popup
+  
+
+    // Add a 'polygon' & bind with a popup function
+
+    // Add a 'marker'
+    var marker = L.marker([38.0417985, 23.8326074])
+        .addTo(map)
+        .bindPopup("<b>Hello world!</b><br>I am a popup.")
+        .openPopup();
+
+</script>
+</body>
+</html>

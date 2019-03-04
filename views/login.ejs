@@ -71,9 +71,14 @@ width: 100%;
 
 		}
 		.sizes{
-			height: 450px;
+			height: 370px;
       width: 40%;
 		}
+
+		.check{
+	margin-bottom: 10px;
+	color:white;
+}
 		#special{
 	color:white;
 }
@@ -94,6 +99,17 @@ body {
 }
 .form1 {
   margin:auto;/* nice thing of auto margin if display:flex; it center both horizontal and vertical :) */
+}
+.let_size{
+    font-weight: strong;
+		font-size: 150%;
+
+}
+
+.let_size1{
+    font-weight: strong;
+		font-size: 100%;
+
 }
   </style>
 </head>
@@ -124,17 +140,18 @@ body {
 				</div>
 				<div class="form-group">
 					<label for="password" id="special">Password</label>
-					<input class="form-control" type="password" name="password" autocomplete="off" required />
+					<input class="form-control" type="password" id="myInput" name="password" autocomplete="off" required />
+				</div>
+				<div class="check">
+					<input type="checkbox"  onclick="myFunction()">Show Password
 				</div>
 				<div class="form-group">
 					<button class="btn btn-md btn-primary btn-block">Login</button>
 				</div>
-				<span id="special">Forgot your password? <a href="/password_reset">Reset password</a></span>
-				<hr>
-				<span id="special">New to coffeeholic? <a href="/signup">Sign up now!</a></span>
+			
+				<span id="special" class="let_size1">New to CoffeeGuru? <a href="/observatory/api/signup" class="let_size">Sign up now!</a></span>
 			</form>
-			<hr>
-			<a href="/">Back</a>
+			
 		</div>
 	</div>
 </div>
@@ -143,6 +160,15 @@ body {
 <footer class="container-fluid text-center">
 		<p>00101010</p>
 	</footer>
-
+	<script>
+		function myFunction() {
+			var x = document.getElementById("myInput");
+			if (x.type === "password") {
+				x.type = "text";
+			} else {
+				x.type = "password";
+			}
+		}
+		</script>
 </body>
 </html>
